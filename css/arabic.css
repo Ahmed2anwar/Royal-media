@@ -1,0 +1,172 @@
+/* Arabic/RTL Styles */
+
+/* Set direction to RTL for Arabic */
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Adjust navigation for RTL */
+.navmenu ul  {
+  direction: rtl ;
+}
+
+.navmenu ul li {
+  float: right;
+}
+
+/* Adjust container alignments */
+.container {
+  direction: rtl;
+}
+
+/* Adjust text alignments */
+.portfolio-description h2,
+.portfolio-description p,
+.portfolio-info h3 {
+  text-align: right;
+}
+
+/* Adjust flex directions if needed */
+.d-flex {
+  direction: rtl;
+}
+.form-floating>label {
+    right: 0;
+  }
+/* Adjust margins and paddings for RTL */
+.me-auto {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.me-xl-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Adjust breadcrumbs */
+.breadcrumbs ol {
+  direction: rtl;
+}
+
+.breadcrumbs ol li {
+  float: right;
+}
+
+/* Adjust portfolio grid */
+.portfolio-grid {
+  direction: rtl;
+}
+
+/* Adjust buttons and links */
+.btn {
+  direction: rtl;
+}
+
+/* Language button styles */
+.language-btn {
+  background: #a70818 !important;
+  color: var(--contrast-color, #fff);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+  
+}
+
+.language-btn:hover,
+.language-btn:focus {
+  background: color-mix(in srgb, var(--accent-color, #a70818) 18%, transparent);
+  color: var(--contrast-color, #fff);
+  border-color: color-mix(in srgb, var(--accent-color, #a70818), transparent 20%);
+}
+.services .services-container .service-item .service-icon {
+  justify-content: end;
+}
+
+.form-floating>label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    max-width: 100%;
+    height: 100%;
+    padding: 1rem .75rem;
+    overflow: hidden;
+    color: rgba(var(--bs-body-color-rgb), .65);
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    border: var(--bs-border-width) solid transparent;
+    transform-origin: 0 0;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+}
+
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    transform: none;
+    top: 0;
+    right: 0;
+}
+
+@media (max-width: 991px) {
+  .navmenu ul {
+    text-align: right;
+  }
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  text-align: right;
+}
+
+/* Right-align CTA content in Arabic */
+.cta-content {
+  text-align: right !important;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+
+    padding: 0 10px;
+
+}.blog-date {
+    position: absolute;
+    right: 1250px;
+    background: #860404;
+    color: #fff;
+    width: fit-content;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.7rem;
+}.modal-header .modal-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-align: center;
+ margin: auto;
+  white-space: nowrap;
+  text-shadow:  0 6px 4px #d6d6d6;
+  padding-bottom: 13px;
+}
+
+.modal-header .modal-title:after {
+  background-color: #c50000;
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 70px;
+  height: 3px;
+  width: 75px;
+  margin-bottom: 0.25em;
+  right: 8%;
+
+}
