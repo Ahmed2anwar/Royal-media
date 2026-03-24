@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog Details - Royal Media Club</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- Arabic CSS File -->
+    <link
+      id="arabic-css"
+      href="assets/css/arabic.css"
+      rel="stylesheet"
+      disabled
+    />
+
+    <style>
+      /* Blog Details Custom Styles */
+      .blog-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b30c0c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .blog-hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .blog-featured-image {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+      }
+
+      .blog-featured-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .blog-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .blog-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #cfcfcf;
+        font-size: 14px;
+      }
+
+      .blog-meta-item i {
+        color: #b30c0c;
+        font-size: 16px;
+      }
+
+      .blog-date {
+        background: linear-gradient(135deg, #b30c0c, #8b0808);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .blog-content-wrapper {
+        background: #1a1a1a;
+        padding: 50px 40px;
+        border-radius: 12px;
+        border-left: 4px solid #b30c0c;
+        margin-bottom: 50px;
+      }
+
+      .blog-content-wrapper h1 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .blog-content-wrapper p {
+        color: #cfcfcf;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .blog-content-wrapper h2 {
+        color: #fff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+
+      .blog-content-wrapper h3 {
+        color: #fff;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .blog-content-wrapper ul,
+      .blog-content-wrapper ol {
+        color: #cfcfcf;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      .blog-content-wrapper li {
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+
+      .blog-highlight {
+        background: rgba(179, 12, 12, 0.1);
+        border-left: 4px solid #b30c0c;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 6px;
+      }
+
+      .blog-highlight p {
+        margin: 0;
+        color: #fff;
+        font-style: italic;
+      }
+
+      .blog-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .blog-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .blog-tag {
+        background: rgba(179, 12, 12, 0.2);
+        color: #b30c0c;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .blog-tag:hover {
+        background: #b30c0c;
+        color: white;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .share-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(179, 12, 12, 0.2);
+        color: #b30c0c;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 18px;
+      }
+
+      .share-btn:hover {
+        background: #b30c0c;
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .related-blogs {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .section-title-blog {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 20px;
+      }
+
+      .section-title-blog::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #b30c0c, #8b0808);
+        border-radius: 2px;
+      }
+
+      .related-blog-card {
+        background: #1a1a1a;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(179, 12, 12, 0.2);
+      }
+
+      .related-blog-card:hover {
+        transform: translateY(-5px);
+        border-color: #b30c0c;
+        box-shadow: 0 10px 25px rgba(179, 12, 12, 0.1);
+      }
+
+      .related-blog-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .related-blog-card-content {
+        padding: 25px;
+      }
+
+      .related-blog-card-date {
+        color: #b30c0c;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .related-blog-card h4 {
+        color: #fff;
+        margin-bottom: 12px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .related-blog-card p {
+        color: #cfcfcf;
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .read-more-link {
+        color: #b30c0c;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .read-more-link:hover {
+        color: #fff;
+        gap: 12px;
+      }
+
+      .back-to-blog {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #b30c0c;
+        text-decoration: none;
+        font-weight: 600;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-blog:hover {
+        color: #fff;
+        gap: 12px;
+      }
+
+      .breadcrumb-custom {
+        background: transparent;
+        padding: 10px 0;
+        margin-bottom: 20px;
+      }
+
+      .breadcrumb-custom a {
+        color: #b30c0c;
+        text-decoration: none;
+      }
+
+      .breadcrumb-custom a:hover {
+        color: #fff;
+      }
+
+      .breadcrumb-custom .breadcrumb-item.active {
+        color: #cfcfcf;
+        padding: 0 15px;
+      }
+
+      @media (max-width: 768px) {
+        .blog-content-wrapper {
+          padding: 30px 20px;
+        }
+
+        .blog-content-wrapper h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .section-title-blog {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="index.html"
+          class=" d-flex align-items-center me-auto me-xl-0"
+        >
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img
+            src="assets/img/logo.jpeg"
+           style="width: 50px "
+           class="rounded-2"
+            alt="royal media logo"
+          />
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html#hero" class="">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Products</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <div class="header-social-links">
+          <button
+            class="language-btn"
+            onclick="window.location.href = 'blog-details-ar.html' + window.location.search"
+          >
+            Ar
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Blog Hero Section -->
+      <section class="blog-hero section">
+        <div class="container blog-hero-content">
+          <div class="breadcrumb-custom" data-aos="fade-up">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Blog Details
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 data-aos="fade-up" data-aos-delay="100">
+            Digi Sign Africa 2026: The Future of Digital Printing
+          </h1>
+
+          <div class="blog-meta" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-meta-item">
+              <i class="bi bi-calendar-event"></i>
+              <span class="blog-date">2026</span>
+            </div>
+            <div class="blog-meta-item">
+              <i class="bi bi-person"></i>
+              <span>Royal Media Team</span>
+            </div>
+            <div class="blog-meta-item">
+              <i class="bi bi-clock"></i>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Featured Image -->
+      <section class="section">
+        <div class="container">
+          <div
+            class="blog-featured-image"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img src="assets/img/header.jpg" alt="Digi Sign Africa 2026" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Content -->
+      <section class="section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="blog-content-wrapper" data-aos="fade-up">
+                <p>
+                  Join us at Digi Sign Africa 2026 as we unveil next-generation
+                  printing technologies and cutting-edge digital solutions. This
+                  year's event promises to be our most exciting showcase yet,
+                  featuring innovative products, expert demonstrations, and
+                  valuable networking opportunities for printing professionals
+                  across the continent.
+                </p>
+
+                <h2>What to Expect at Digi Sign Africa 2026</h2>
+
+                <p>
+                  This year's Digi Sign Africa 2026 will be a groundbreaking
+                  event that brings together industry leaders, printing
+                  businesses, and technology innovators. As part of Royal
+                  Media's commitment to advancing the digital printing industry,
+                  we're excited to showcase our latest offerings and connect
+                  with our valued partners and clients.
+                </p>
+
+                <h3>Next-Generation Printing Machines</h3>
+                <p>
+                  Experience our latest digital printing equipment, including:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Yaselan YSL-X9 & EP-180:</strong> Advanced wide-format
+                    printers with superior precision and speed
+                  </li>
+                  <li>
+                    <strong>Forni UV Flatbed Printer:</strong> Cutting-edge
+                    technology for printing on rigid materials
+                  </li>
+                  <li>
+                    <strong>Enhanced Automation Features:</strong> AI-powered
+                    systems for improved efficiency and reduced production time
+                  </li>
+                </ul>
+
+                <h3>Premium Materials & Inks</h3>
+                <p>
+                  Discover our comprehensive range of high-quality printing
+                  materials and inks:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Indoor Solutions:</strong> Lamination, canvas,
+                    vinyl, and specialty substrates
+                  </li>
+                  <li>
+                    <strong>Outdoor Solutions:</strong> Banners, coated flex,
+                    reflective materials, and weather-resistant options
+                  </li>
+                  <li>
+                    <strong>Premium Inks:</strong> Eco-solvent, solvent, and
+                    UV-curable inks for superior color reproduction
+                  </li>
+                </ul>
+
+                <div class="blog-highlight">
+                  <p>
+                    🎯 Special Announcement: Exclusive show discounts and early
+                    bird offers for Royal Media Club members will be available
+                    throughout the event!
+                  </p>
+                </div>
+
+                <h2>Why Attend Digi Sign Africa 2026?</h2>
+
+                <h3>Educational Workshops & Seminars</h3>
+                <p>
+                  Learn directly from industry experts about:
+                </p>
+                <ul>
+                  <li>Maximizing print quality and color consistency</li>
+                  <li>
+                    Implementing sustainable printing practices and reducing
+                    waste
+                  </li>
+                  <li>Business growth strategies for print shops</li>
+                  <li>Latest trends in digital signage and advertising</li>
+                </ul>
+
+                <h3>Live Product Demonstrations</h3>
+                <p>
+                  See our machines in action as our technical experts demonstrate
+                  live printing, material handling, and troubleshooting
+                  techniques. Ask questions and discover solutions tailored to
+                  your business needs.
+                </p>
+
+                <h3>Networking & Partnerships</h3>
+                <p>
+                  Connect with printing industry professionals, suppliers,
+                  distributors, and fellow entrepreneurs. Build valuable
+                  relationships that can drive your business forward and unlock
+                  new opportunities for collaboration and growth.
+                </p>
+
+                <h3>Exclusive Offers & Promotions</h3>
+                <p>
+                  Take advantage of show-exclusive deals, bundle packages, and
+                  special financing options available only during the event.
+                  Royal Media will offer unbeatable prices on machines, materials,
+                  and extended service packages.
+                </p>
+
+                <h2>Royal Media Booth Highlights</h2>
+
+                <p>
+                  At our booth, you'll experience:
+                </p>
+                <ul>
+                  <li>
+                    Full product catalog display with hands-on demonstrations
+                  </li>
+                  <li>
+                    Expert consultants available for one-on-one business
+                    consultations
+                  </li>
+                  <li>VIP lounge for major clients and partners</li>
+                  <li>Raffle draws with exciting prizes throughout the event</li>
+                  <li>
+                    Live booth presentations every 30 minutes covering key topics
+                  </li>
+                </ul>
+
+                <h2>Make Your Mark in Digital Printing</h2>
+
+                <p>
+                  Whether you're looking to upgrade your equipment, expand your
+                  service offerings, or stay ahead of industry trends, Digi Sign
+                  Africa 2026 is the perfect opportunity to invest in your
+                  business.
+                </p>
+
+                <p>
+                  Royal Media is committed to empowering printing businesses with
+                  the technology, expertise, and support they need to succeed.
+                  Join us at Digi Sign Africa 2026 and be part of the future of
+                  digital printing!
+                </p>
+
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Blogs Section -->
+      <section class="section">
+        <div class="container">
+          <div class="related-blogs">
+            <h2 class="section-title-blog">Related Blog Posts</h2>
+
+            <div class="row g-4">
+              <!-- Related Blog 1 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="related-blog-card">
+                  <img src="assets/img/11.jpg" alt="Digi Sign Africa 2019" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2019</div>
+                    <h4>Digi Sign Africa 2019</h4>
+                    <p>
+                      Royal Media proudly showcased its latest digital printing
+                      machines, premium inks, and innovative materials.
+                    </p>
+                    <a href="blog-details.html?blog=2019" class="read-more-link">
+                      Read More
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Blog 2 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="related-blog-card">
+                  <img src="assets/img/events/22.jpg" alt="Digi Sign Africa 2020" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2020</div>
+                    <h4>Digi Sign Africa 2020</h4>
+                    <p>
+                      We continued our journey of innovation by presenting
+                      advanced printing solutions and building partnerships.
+                    </p>
+                    <a href="blog-details.html?blog=2020" class="read-more-link">
+                      Read More
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Blog 3 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="related-blog-card">
+                  <img src="assets/img/header.jpg" alt="Printing Tips" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2026</div>
+                    <h4>Top Trends in Digital Printing</h4>
+                    <p>
+                      Discover the latest trends and innovations shaping the
+                      future of digital printing technology.
+                    </p>
+                    <a href="blog-details.html?blog=2026" class="read-more-link">
+                      Read More
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" data-aos="fade-up">
+        <div class="container">
+          <div class="row" style="justify-content: center;">
+            <div class="col-md-9">
+                <div
+            class="cta-wrapper text-center"
+            style="background: linear-gradient(135deg, #6d0202 0%, #8b0808 100%); padding: 60px 40px; border-radius: 12px; margin-top: 50px;"
+          >
+            <h3 style="color: white; margin-bottom: 20px; font-size: 2rem;">
+              Ready to Transform Your Printing Business?
+            </h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
+              Join thousands of printing professionals who trust Royal Media for
+              quality equipment, premium materials, and expert support.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+              <a
+                href="index.html#contact"
+                class="btn"
+                style="background: white; color: #b30c0c; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600;"
+              >
+                Contact Us Today
+              </a>
+              <a
+                href="index.html#portfolio"
+                class="btn"
+                style="background: transparent; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; border: 1px solid white;"
+              >
+                View Our Products
+              </a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer light-background">
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-lg-4 col-md-6 d-flex">
+            <i class="bi bi-info-circle px-2 icon"></i>
+            <div class="address">
+              <h4>About us</h4>
+              <p>
+                Royal Media is a leading company specialized in the import of
+                high-quality digital printing materials, advanced machinery
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-telephone px-2 icon"></i>
+            <div>
+              <h4>Contact</h4>
+              <p>
+                <strong>Phone:</strong> <span>+0201025111103</span><br />
+                <strong>Phone:</strong> <span>+0201091666919</span><br />
+                <strong>Email:</strong> <span>info@royalmedia-eg.com</span
+                ><br />
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-clock px-2 icon"></i>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>
+                <strong>Saturday-Thursday:</strong> <span>9AM - 6PM</span><br />
+                <strong>Friday</strong>: <span>Closed</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h4>Follow Us</h4>
+            <div class="social-links d-flex">
+              <a href="https://www.facebook.com/royalmedia.egy" class="facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/royalmediagroup/"
+                class="linkedin"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+      <a
+        href="https://wa.me/+201025111103"
+        target="_blank"
+        class="whatsapp-btn"
+      >
+        <i class="bi bi-whatsapp"></i>
+      </a>
+
+      <a href="tel:+201025111103" class="call-btn">
+        <i class="bi bi-telephone"></i>
+      </a>
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Portfolio Data -->
+    <script src="assets/js/portfolio-data.js"></script>
+
+    <!-- Blog Details Handler -->
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>

@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تفاصيل المدونة - نادي رويال ميديا</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- Arabic CSS File -->
+    <link
+      id="arabic-css"
+      href="assets/css/arabic.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Blog Details Custom Styles */
+      .blog-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b30c0c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .blog-hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .blog-featured-image {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+      }
+
+      .blog-featured-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .blog-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .blog-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #cfcfcf;
+        font-size: 14px;
+      }
+
+      .blog-meta-item i {
+        color: #b30c0c;
+        font-size: 16px;
+      }
+
+      .blog-date {
+        background: linear-gradient(135deg, #b30c0c, #8b0808);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .blog-content-wrapper {
+        background: #1a1a1a;
+        padding: 50px 40px;
+        border-radius: 12px;
+        border-left: 4px solid #b30c0c;
+        margin-bottom: 50px;
+      }
+
+      .blog-content-wrapper h1 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .blog-content-wrapper p {
+        color: #cfcfcf;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .blog-content-wrapper h2 {
+        color: #fff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+
+      .blog-content-wrapper h3 {
+        color: #fff;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .blog-content-wrapper ul,
+      .blog-content-wrapper ol {
+        color: #cfcfcf;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      .blog-content-wrapper li {
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+
+      .blog-highlight {
+        background: rgba(179, 12, 12, 0.1);
+        border-left: 4px solid #b30c0c;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 6px;
+      }
+
+      .blog-highlight p {
+        margin: 0;
+        color: #fff;
+        font-style: italic;
+      }
+
+      .blog-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .blog-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .blog-tag {
+        background: rgba(179, 12, 12, 0.2);
+        color: #b30c0c;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .blog-tag:hover {
+        background: #b30c0c;
+        color: white;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .share-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(179, 12, 12, 0.2);
+        color: #b30c0c;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 18px;
+      }
+
+      .share-btn:hover {
+        background: #b30c0c;
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .related-blogs {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .section-title-blog {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 20px;
+      }
+
+      .section-title-blog::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #b30c0c, #8b0808);
+        border-radius: 2px;
+      }
+
+      .related-blog-card {
+        background: #1a1a1a;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(179, 12, 12, 0.2);
+      }
+
+      .related-blog-card:hover {
+        transform: translateY(-5px);
+        border-color: #b30c0c;
+        box-shadow: 0 10px 25px rgba(179, 12, 12, 0.1);
+      }
+
+      .related-blog-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .related-blog-card-content {
+        padding: 25px;
+      }
+
+      .related-blog-card-date {
+        color: #b30c0c;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .related-blog-card h4 {
+        color: #fff;
+        margin-bottom: 12px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .related-blog-card p {
+        color: #cfcfcf;
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .read-more-link {
+        color: #b30c0c;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .read-more-link:hover {
+        color: #fff;
+        gap: 12px;
+      }
+
+      .back-to-blog {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #b30c0c;
+        text-decoration: none;
+        font-weight: 600;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-blog:hover {
+        color: #fff;
+        gap: 12px;
+      }
+
+      .breadcrumb-custom {
+        background: transparent;
+        padding: 10px 0;
+        margin-bottom: 20px;
+      }
+
+      .breadcrumb-custom a {
+        color: #b30c0c;
+        text-decoration: none;
+      }
+
+      .breadcrumb-custom a:hover {
+        color: #fff;
+      }
+
+      .breadcrumb-custom .breadcrumb-item.active {
+        color: #cfcfcf;
+        padding: 0 15px;
+      }
+
+      @media (max-width: 768px) {
+        .blog-content-wrapper {
+          padding: 30px 20px;
+        }
+
+        .blog-content-wrapper h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .section-title-blog {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="index.html"
+          class=" d-flex align-items-center me-auto me-xl-0"
+        >
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img
+            src="assets/img/logo.jpeg"
+           style="width: 50px "
+           class="rounded-2"
+            alt="royal media logo"
+          />
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index-ar.html#hero" class="">الرئيسية</a></li>
+            <li><a href="index-ar.html#about">من نحن</a></li>
+            <li><a href="index-ar.html#services">خدماتنا</a></li>
+            <li><a href="index-ar.html#portfolio">منتجاتنا</a></li>
+            <li><a href="index-ar.html#contact">اتصل بنا</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <div class="header-social-links">
+          <button
+            class="language-btn"
+            onclick="window.location.href = 'blog-details.html' + window.location.search"
+          >
+            En
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Blog Hero Section -->
+      <section class="blog-hero section">
+        <div class="container blog-hero-content">
+          <div class="breadcrumb-custom" data-aos="fade-up">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-ar.html">الرئيسية</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  تفاصيل المدونة
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <h1 data-aos="fade-up" data-aos-delay="100">
+            ديجي ساين أفريقيا 2026: مستقبل الطباعة الرقمية
+          </h1>
+
+          <div class="blog-meta" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-meta-item">
+              <i class="bi bi-calendar-event"></i>
+              <span class="blog-date">2026</span>
+            </div>
+            <div class="blog-meta-item">
+              <i class="bi bi-person"></i>
+              <span>فريق رويال ميديا</span>
+            </div>
+            <div class="blog-meta-item">
+              <i class="bi bi-clock"></i>
+              <span>5 دقائق قراءة</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Featured Image -->
+      <section class="section">
+        <div class="container">
+          <div
+            class="blog-featured-image"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img src="assets/img/header.jpg" alt="ديجي ساين أفريقيا 2026" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Content -->
+      <section class="section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="blog-content-wrapper" data-aos="fade-up">
+                <p>
+                  انضم إلينا في ديجي ساين أفريقيا 2026 حيث نكشف عن تقنيات الطباعة من الجيل التالي وحلول رقمية متطورة. يعد حدث هذا العام بأن يكون عرضنا الأكثر إثارة حتى الآن، ويضم منتجات مبتكرة وعروض توضيحية متخصصة وفرص شبكات قيمة لمحترفي الطباعة في جميع أنحاء القارة.
+                </p>
+
+                <h2>ماذا تتوقع في ديجي ساين أفريقيا 2026</h2>
+
+                <p>
+                  سيكون حدث ديجي ساين أفريقيا 2026 هذا العام حدثًا رائدًا يجمع بين قادة الصناعة وشركات الطباعة والمبتكرين التكنولوجيين. كجزء من التزام رويال ميديا بتطوير صناعة الطباعة الرقمية، نحن متحمسون لعرض أحدث عروضاتنا والتواصل مع شركاؤنا وعملائنا القيمين.
+                </p>
+
+                <h3>آلات الطباعة من الجيل التالي</h3>
+                <p>
+                  اكتشف آلات الطباعة الرقمية الحديثة لدينا، بما في ذلك:
+                </p>
+                <ul>
+                  <li>
+                    <strong>ياسلان YSL-X9 و EP-180:</strong> طابعات عريضة الصيغة متقدمة بدقة وسرعة فائقة
+                  </li>
+                  <li>
+                    <strong>طابعة Forni UV المسطحة:</strong> تقنية متطورة لطباعة الخامات الصلبة
+                  </li>
+                  <li>
+                    <strong>ميزات الأتمتة المحسّنة:</strong> أنظمة مدعومة بالذكاء الاصطناعي لتحسين الكفاءة وتقليل وقت الإنتاج
+                  </li>
+                </ul>
+
+                <h3>الخامات والحبر الممتاز</h3>
+                <p>
+                  اكتشف نطاقنا الشامل من خامات الطباعة والحبر عالي الجودة:
+                </p>
+                <ul>
+                  <li>
+                    <strong>الحلول الداخلية:</strong> التصفيح والقنفاصية والفينيل والركائز المتخصصة
+                  </li>
+                  <li>
+                    <strong>الحلول الخارجية:</strong> اللافتات والقماش المغطى والخامات العاكسة والخيارات المقاومة للطقس
+                  </li>
+                  <li>
+                    <strong>الحبر الممتاز:</strong> حبر إيكو-سولفنت وسولفنت وحبر معالج بالأشعة فوق البنفسجية لاستنساخ ألوان فائق
+                  </li>
+                </ul>
+
+                <div class="blog-highlight">
+                  <p>
+                    🎯 إعلان خاص: ستكون هناك عروض حصرية لأعضاء نادي رويال ميديا وعروض خاصة للطيور المبكرة متاحة طوال الحدث!
+                  </p>
+                </div>
+
+                <h2>لماذا تحضر ديجي ساين أفريقيا 2026؟</h2>
+
+                <h3>ورش عمل وندوات تعليمية</h3>
+                <p>
+                  تعلم مباشرة من خبراء الصناعة حول:
+                </p>
+                <ul>
+                  <li>تعظيم جودة الطباعة واتساق الألوان</li>
+                  <li>
+                    تنفيذ ممارسات الطباعة المستدامة وتقليل النفايات
+                  </li>
+                  <li>استراتيجيات النمو التجاري لمحال الطباعة</li>
+                  <li>أحدث الاتجاهات في اللافتات الرقمية والإعلان</li>
+                </ul>
+
+                <h3>العروض التوضيحية المباشرة للمنتجات</h3>
+                <p>
+                  شاهد آلاتنا في العمل حيث يقوم خبراؤنا التقنيون بعرض الطباعة المباشرة وعملية التعامل مع الخامات ومهارات استكشاف الأخطاء. اطرح الأسئلة واكتشف الحلول المخصصة لاحتياجات عملك.
+                </p>
+
+                <h3>الشبكات والشراكات</h3>
+                <p>
+                  التواصل مع متخصصي صناعة الطباعة والموردين والموزعين ورجال الأعمال الآخرين. بناء علاقات قيمة يمكنها أن تدفع عملك للأمام وفتح فرصًا جديدة للتعاون والنمو.
+                </p>
+
+                <h3>العروض والترويجات الحصرية</h3>
+                <p>
+                  استفد من صفقات حصرية للعرض وحزم موانع وخيارات تمويل خاصة متاحة فقط أثناء الحدث. ستقدم رويال ميديا أسعارًا لا تُقهر على الآلات والخامات وحزم الخدمات الموسعة.
+                </p>
+
+                <h2>أبرز كشك رويال ميديا</h2>
+
+                <p>
+                  في كشكنا، ستختبر:
+                </p>
+                <ul>
+                  <li>
+                    عرض كامل للكتالوج مع عروض توضيحية عملية
+                  </li>
+                  <li>
+                    استشاريون متخصصون متاحون للاستشارات التجارية الفردية
+                  </li>
+                  <li>صالة VIP لرجال الأعمال الكبار والشركاء</li>
+                  <li>سحوبات اليانصيب مع جوائز مثيرة طوال الحدث</li>
+                  <li>
+                    عروض مباشرة في الكشك كل 30 دقيقة تغطي الأنماط الرئيسية
+                  </li>
+                </ul>
+
+                <h2>اترك بصمتك في الطباعة الرقمية</h2>
+
+                <p>
+                  سواء كنت تتطلع إلى ترقية معداتك أو توسيع عروض خدماتك أو البقاء في طليعة اتجاهات الصناعة، فإن ديجي ساين أفريقيا 2026 هي الفرصة المثالية للاستثمار في عملك.
+                </p>
+
+                <p>
+                  رويال ميديا ملتزمة بتمكين شركات الطباعة بالتكنولوجيا والخبرة والدعم الذي تحتاجه للنجاح. انضم إلينا في ديجي ساين أفريقيا 2026 وكن جزءًا من مستقبل الطباعة الرقمية!
+                </p>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Blogs Section -->
+      <section class="section">
+        <div class="container">
+          <div class="related-blogs">
+            <h2 class="section-title-blog">منشورات المدونة الأخرى ذات الصلة</h2>
+
+            <div class="row g-4">
+              <!-- Related Blog 1 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="related-blog-card">
+                  <img src="assets/img/11.jpg" alt="ديجي ساين أفريقيا 2019" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2019</div>
+                    <h4>ديجي ساين أفريقيا 2019</h4>
+                    <p>
+                      قدمت رويال ميديا بفخر أحدث آلات الطباعة الرقمية والحبر الممتاز والخامات المبتكرة.
+                    </p>
+                    <a href="blog-details-ar.html?blog=2019" class="read-more-link">
+                      اقرأ المزيد
+                      <i class="bi bi-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Blog 2 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="related-blog-card">
+                  <img src="assets/img/events/22.jpg" alt="Digi Sign Africa 2020" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2020</div>
+                    <h4>ديجي ساين أفريقيا 2020</h4>
+                    <p>
+                      استمرنا في رحلة الابتكار من خلال تقديم حلول طباعة متقدمة وبناء شراكات قوية.
+                    </p>
+                    <a href="blog-details-ar.html?blog=2020" class="read-more-link">
+                      اقرأ المزيد
+                      <i class="bi bi-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Blog 3 -->
+              <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="related-blog-card">
+                  <img src="assets/img/header.jpg" alt="نصائح الطباعة" />
+                  <div class="related-blog-card-content">
+                    <div class="related-blog-card-date">2026</div>
+                    <h4>أحدث الاتجاهات في الطباعة الرقمية</h4>
+                    <p>
+                      اكتشف أحدث الاتجاهات والابتكارات التي تشكل مستقبل تكنولوجيا الطباعة الرقمية.
+                    </p>
+                    <a href="blog-details-ar.html?blog=2026" class="read-more-link">
+                      اقرأ المزيد
+                      <i class="bi bi-arrow-left"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section" data-aos="fade-up">
+        <div class="container">
+          <div
+            class="cta-wrapper text-center"
+            style="background: linear-gradient(135deg, #b30c0c 0%, #8b0808 100%); padding: 60px 40px; border-radius: 12px; margin-top: 50px;"
+          >
+            <h3 style="color: white; margin-bottom: 20px; font-size: 2rem;">
+هل أنت مستعد لتطوير أعمالك في مجال الطباعة؟            </h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
+              انضم إلى آلاف متخصصي الطباعة الذين يثقون برويال ميديا للحصول على معدات عالية الجودة وخامات ممتازة ودعم متخصص.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+              <a
+                href="index-ar.html#contact"
+                class="btn"
+                style="background: white; color: #b30c0c; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600;"
+              >
+                اتصل بنا الان
+              </a>
+              <a
+                href="index-ar.html#portfolio"
+                class="btn"
+                style="background: transparent; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; border: 2px solid white;"
+              >
+                عرض منتجاتنا
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="footer light-background">
+      <div class="container">
+        <div class="row gy-3">
+          <div class="col-lg-4 col-md-6 d-flex">
+            <i class="bi bi-info-circle icon"></i>
+            <div class="address">
+              <h4>من نحن</h4>
+              <p>
+                رويال ميديا هي شركة رائدة متخصصة في استيراد خامات الطباعة الرقمية عالية الجودة والماكينات المتقدمة
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-telephone icon"></i>
+            <div>
+              <h4>اتصل بنا</h4>
+              <p>
+                <strong>الهاتف:</strong> <span>+0201025111103</span><br />
+                <strong>الهاتف:</strong> <span>+0201091666919</span><br />
+                <strong>البريد الإلكتروني:</strong> <span>info@royalmedia-eg.com</span
+                ><br />
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-clock icon"></i>
+            <div>
+              <h4>ساعات العمل</h4>
+              <p>
+                <strong>السبت-الخميس:</strong> <span>9ص - 6م</span><br />
+                <strong>الجمعة:</strong> <span>مغلق</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h4>تابعنا</h4>
+            <div class="social-links d-flex">
+              <a href="https://www.facebook.com/royalmedia.egy" class="facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/royalmediagroup/"
+                class="linkedin"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+      <a
+        href="https://wa.me/+201025111103"
+        target="_blank"
+        class="whatsapp-btn"
+      >
+        <i class="bi bi-whatsapp"></i>
+      </a>
+
+      <a href="tel:+201025111103" class="call-btn">
+        <i class="bi bi-telephone"></i>
+      </a>
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Portfolio Data -->
+    <script src="assets/js/portfolio-data.js"></script>
+
+    <!-- Blog Details Handler -->
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>
